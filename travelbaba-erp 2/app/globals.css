@@ -1,0 +1,322 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* TravelBabaVoyage brand color system and design tokens */
+:root {
+  /* Brand Colors */
+  --beige: #f5e6d3;
+  --tan: #d4b896;
+  --yellow: #f4d03f;
+  --gold: #d4af37;
+  --brown: #5d4e37;
+  --warm-white: #fefcf8;
+  --soft-gray: #f8f6f3;
+  --charcoal: #2c2c2c;
+  --deep-brown: #3d2914;
+
+  /* Semantic Design Tokens */
+  --background: var(--warm-white);
+  --foreground: var(--deep-brown);
+  --card: var(--warm-white);
+  --card-foreground: var(--deep-brown);
+  --popover: var(--warm-white);
+  --popover-foreground: var(--deep-brown);
+  --primary: var(--gold);
+  --primary-foreground: var(--warm-white);
+  --secondary: var(--beige);
+  --secondary-foreground: var(--deep-brown);
+  --muted: var(--soft-gray);
+  --muted-foreground: var(--brown);
+  --accent: var(--yellow);
+  --accent-foreground: var(--deep-brown);
+  --destructive: #dc2626;
+  --destructive-foreground: var(--warm-white);
+  --border: var(--tan);
+  --input: var(--beige);
+  --ring: var(--gold);
+  --radius: 0.75rem;
+
+  /* Glass Effect Variables */
+  --glass-bg: rgba(245, 230, 211, 0.8);
+  --glass-border: rgba(212, 184, 150, 0.3);
+  --glass-shadow: rgba(93, 78, 55, 0.1);
+
+  /* Sidebar Variables */
+  --sidebar: #fefcf8;
+  --sidebar-foreground: #2c2c2c;
+  --sidebar-primary: #d4af37;
+  --sidebar-primary-foreground: #fefcf8;
+  --sidebar-accent: #f4d03f;
+  --sidebar-accent-foreground: #2c2c2c;
+  --sidebar-border: #d4b896;
+  --sidebar-ring: #d4af37;
+
+  /* Chart Variables */
+  --chart-1: #f5e6d3;
+  --chart-2: #d4b896;
+  --chart-3: #f4d03f;
+  --chart-4: #d4af37;
+  --chart-5: #f5e6d3;
+}
+
+.dark {
+  --background: var(--deep-brown);
+  --foreground: var(--warm-white);
+  --card: var(--charcoal);
+  --card-foreground: var(--warm-white);
+  --popover: var(--charcoal);
+  --popover-foreground: var(--warm-white);
+  --primary: var(--gold);
+  --primary-foreground: var(--deep-brown);
+  --secondary: var(--brown);
+  --secondary-foreground: var(--warm-white);
+  --muted: var(--charcoal);
+  --muted-foreground: var(--tan);
+  --accent: var(--yellow);
+  --accent-foreground: var(--deep-brown);
+  --border: var(--brown);
+  --input: var(--brown);
+  --ring: var(--gold);
+
+  --glass-bg: rgba(45, 45, 45, 0.8);
+  --glass-border: rgba(212, 175, 55, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Sidebar Variables */
+  --sidebar: #2c2c2c;
+  --sidebar-foreground: #fefcf8;
+  --sidebar-primary: #454545;
+  --sidebar-primary-foreground: #fefcf8;
+  --sidebar-accent: #454545;
+  --sidebar-accent-foreground: #fefcf8;
+  --sidebar-border: #454545;
+  --sidebar-ring: #454545;
+
+  /* Chart Variables */
+  --chart-1: #454545;
+  --chart-2: #454545;
+  --chart-3: #454545;
+  --chart-4: #454545;
+  --chart-5: #454545;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-dm-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-beige: var(--beige);
+  --color-tan: var(--tan);
+  --color-yellow: var(--yellow);
+  --color-gold: var(--gold);
+  --color-brown: var(--brown);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  /* Glass morphism effect */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+  }
+
+  /* Capsule navigation transform */
+  .nav-capsule {
+    @apply rounded-full px-6 py-3;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth scroll behavior */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus visible styles */
+  .focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  /* Card styles */
+  .travel-card {
+    @apply bg-card text-card-foreground rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-warm {
+    background: linear-gradient(135deg, var(--beige) 0%, var(--tan) 100%);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--gold) 100%);
+  }
+
+  /* Globe container styles */
+  .globe-container {
+    position: relative;
+    animation: globe-rotate 20s linear infinite;
+  }
+
+  /* Orbiting image animations */
+  .animate-orbit-1 {
+    animation: orbit-1 15s linear infinite;
+  }
+
+  .animate-orbit-2 {
+    animation: orbit-2 18s linear infinite;
+  }
+
+  .animate-orbit-3 {
+    animation: orbit-3 22s linear infinite;
+  }
+
+  .animate-orbit-4 {
+    animation: orbit-4 12s linear infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--tan) var(--beige);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: var(--beige);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: var(--tan);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+  }
+
+  /* Keyframe animations for globe and orbiting elements */
+  @keyframes globe-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes orbit-1 {
+    0% {
+      transform: rotate(0deg) translateX(120px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbit-2 {
+    0% {
+      transform: rotate(90deg) translateX(100px) rotate(-90deg);
+    }
+    100% {
+      transform: rotate(450deg) translateX(100px) rotate(-450deg);
+    }
+  }
+
+  @keyframes orbit-3 {
+    0% {
+      transform: rotate(180deg) translateX(110px) rotate(-180deg);
+    }
+    100% {
+      transform: rotate(540deg) translateX(110px) rotate(-540deg);
+    }
+  }
+
+  @keyframes orbit-4 {
+    0% {
+      transform: rotate(270deg) translateX(90px) rotate(-270deg);
+    }
+    100% {
+      transform: rotate(630deg) translateX(90px) rotate(-630deg);
+    }
+  }
+}
